@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stillspace</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon32.png">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="brand-row">
+      <img class="brand-mark" src="icons/icon32.png" alt="Stillspace logo">
+      <div><div class="brand">Stillspace</div><div class="tagline">Make room to think.</div></div>
+      <button id="openDashboard" class="icon-button" title="Open dashboard in a new tab" aria-label="Open dashboard">↗</button>
+    </header>
+
+    <button id="customizeExperience" class="customize-card" type="button">
+      <span class="customize-icon">✦</span>
+      <span class="customize-copy"><span class="customize-kicker">MAKE STILLSPACE YOURS</span><strong id="customizeTitle">Choose your browser experience</strong><small id="customizeDescription">Black Ops themes · cinematic wallpapers · full tab redesigns</small><span class="customize-cta">EXPLORE THEMES <b>↗</b></span></span>
+      <span class="customize-chevron">→</span>
+    </button>
+
+
+    <section class="hero-card">
+      <div class="eyebrow">YOUR CURRENT WINDOW</div>
+      <div class="hero-line"><div><strong id="tabCount">—</strong><span> tabs open</span></div><div class="live-dot"></div></div>
+      <p>Keep your current tab. Save the rest for later.</p>
+      <label class="field-label" for="workspaceName">Workspace name</label>
+      <input id="workspaceName" maxlength="48" placeholder="e.g. DSA sprint, GATE, Research" autocomplete="off">
+      <button id="stashButton" class="primary-button">Stash other tabs <span>→</span></button>
+      <div id="status" class="status" role="status"></div>
+    </section>
+
+    <section class="workspace-section">
+      <div class="section-heading"><div><div class="eyebrow">YOUR LIBRARY</div><h2>Workspaces</h2></div><span id="workspaceCount" class="count-pill">0</span></div>
+      <div id="workspaceList" class="workspace-list"></div>
+      <div id="emptyState" class="empty-state"><div class="empty-orbit">◌</div><strong>A little breathing room.</strong><p>Stash your open tabs and they’ll be waiting here when you need them.</p></div>
+    </section>
+    <footer><span>Stored on this device</span><span class="footer-dot">●</span><span>No account. No tracking.</span></footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Stillspace",
+  "version": "2.18.0",
+  "description": "Stillspace \u2014 a cinematic New Tab workspace with themes, wallpapers, focus tools and saved tab workspaces.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "action": {
+    "default_title": "Stillspace",
+    "default_popup": "popup.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10141b">
+  <title>Stillspace — Make room to think</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon32.png">
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body data-theme="stealth" data-wallpaper="aurora">
+  <div class="wallpaper-layer" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="wordmark" href="#" aria-label="Stillspace home"><img class="brand-logo" src="icons/icon32.png" alt=""><span>Stillspace</span></a>
+    <div class="top-actions"><span class="privacy-label"><i></i> Private by design</span><button id="openThemeStoreTop" class="customize-top"><span>✦</span> Customize experience</button><button id="settingsToggle" class="round-button" aria-label="Open appearance settings" title="Appearance settings">☼</button></div>
+  </header>
+  <main class="dashboard">
+    <section class="welcome">
+      <div class="eyebrow" id="dateLabel">A CLEAR SPACE</div>
+      <h1 id="greeting">Good <em>evening.</em></h1>
+      <div id="clock" class="clock">09:41</div>
+      <p class="subline">A quieter place for whatever comes next.</p>
+      <form id="searchForm" class="searchbar"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Search the web or enter a URL" autocomplete="off" aria-label="Search the web"><kbd>↵</kbd></form>
+    </section>
+
+    <section class="widget-dock" aria-label="Personal widgets">
+      <article class="mini-widget clock-widget">
+        <div class="widget-heading"><div><div class="eyebrow">YOUR LOCAL TIME</div><h2>Clock</h2></div><span class="widget-icon" aria-hidden="true">◷</span></div>
+        <div id="widgetClock" class="widget-clock">09:41:00</div>
+        <div id="widgetDate" class="widget-date">Wednesday, October 14</div>
+        <div id="widgetTimezone" class="widget-timezone">Local time · 24-hour</div>
+      </article>
+      <article class="mini-widget notes-widget">
+        <div class="widget-heading"><div><div class="eyebrow">CAPTURE IT BEFORE IT'S GONE</div><h2>Quick notes</h2></div><span class="widget-icon" aria-hidden="true">✎</span></div>
+        <textarea id="quickNote" maxlength="3000" rows="4" placeholder="A thought, a reminder, a link to check later…" aria-label="Quick notes"></textarea>
+        <div class="notes-footer"><span id="noteSaveStatus" aria-live="polite">Saved on this device</span><span id="noteCharCount">0 / 3000</span><button id="clearQuickNote" class="text-button" type="button">Clear note</button></div>
+      </article>
+    </section>
+
+    <section class="daily-section">
+      <div class="daily-panel focus-panel">
+        <div class="section-top"><div><div class="eyebrow">PROTECT YOUR ATTENTION</div><h2>Focus session</h2></div><span id="focusStatus" class="local-pill">READY</span></div>
+        <div class="focus-clock" id="focusClock" aria-live="polite">25:00</div>
+        <div class="focus-presets" role="group" aria-label="Focus duration"><button data-focus-minutes="25" class="active">25 min</button><button data-focus-minutes="50">50 min</button><button data-focus-minutes="90">90 min</button></div>
+        <div class="focus-controls"><button id="focusStart" class="primary-action">Start focus</button><button id="focusReset" class="secondary-action">Reset</button></div>
+        <p class="daily-footnote">Runs locally in this browser. Keep this tab open to see the countdown.</p>
+      </div>
+      <div class="daily-panel tasks-panel">
+        <div class="section-top"><div><div class="eyebrow">MAKE TODAY COUNT</div><h2>Today's priorities <span id="taskCount">0</span></h2></div><span id="taskProgress" class="task-progress">0 done</span></div>
+        <form id="taskForm" class="task-entry"><input id="taskInput" maxlength="180" placeholder="Add one concrete priority…" aria-label="New priority"><button type="submit" aria-label="Add priority">＋</button></form>
+        <div id="taskList" class="task-list"></div><div id="taskEmpty" class="task-empty">Keep it small. Add the next thing that matters.</div>
+        <div class="local-stats"><div><strong id="statSessions">0</strong><span>sessions completed</span></div><div><strong id="statMinutes">0</strong><span>focus minutes</span></div><button id="clearCompletedTasks" class="text-button">Clear completed</button></div>
+      </div>
+    </section>
+
+    <section class="continuity-section" aria-labelledby="continuityTitle">
+      <div class="section-top"><div><div class="eyebrow">PRESERVE YOUR MOMENTUM</div><h2 id="continuityTitle">Pick up where you left off</h2></div><span class="local-pill">SAVED ON THIS DEVICE</span></div>
+      <div class="continuity-card">
+        <div class="continuity-fields">
+          <label>What are you working on?<input id="resumeProject" maxlength="120" placeholder="e.g. Backend interview preparation"></label>
+          <label>Where did you stop?<textarea id="resumeLast" maxlength="500" rows="2" placeholder="The last thing you were doing…"></textarea></label>
+          <label>Next step<textarea id="resumeNext" maxlength="500" rows="2" placeholder="The first thing to do when you return…"></textarea></label>
+        </div>
+        <div class="continuity-footer"><span id="resumeSavedAt">No checkpoint saved yet</span><div><button id="resumeClear" class="text-button" type="button">Clear</button><button id="resumeSave" class="primary-action" type="button">Save checkpoint</button></div></div>
+      </div>
+    </section>
+
+    <section class="memory-section">
+      <div class="section-top"><div><div class="eyebrow">YOUR LOCAL LIBRARY</div><h2>Browser memory <span id="memoryCount">0</span></h2></div><div class="memory-actions"><button id="saveCurrentPage" class="text-button">＋ Save current page</button><button id="commandOpen" class="text-button">⌘ Command <kbd>Ctrl K</kbd></button></div></div>
+      <div class="memory-search"><span>⌕</span><input id="memorySearch" type="search" placeholder="Search saved pages, notes and tags…"><button id="clearMemorySearch" type="button">Clear</button></div>
+      <div id="memoryGrid" class="memory-grid"></div><div id="memoryEmpty" class="memory-empty">Save useful pages to build a private, searchable browser memory. Everything stays on this device.</div>
+    </section>
+
+    <section class="library-section">
+      <div class="section-top"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Your workspaces <span id="wsCount">0</span></h2></div><button id="manageButton" class="text-button">Open workspace manager <span>↗</span></button></div>
+      <div id="workspaceGrid" class="workspace-grid"></div>
+      <div id="workspaceEmpty" class="workspace-empty"><span class="empty-spark">✳</span><div><strong>Your next chapter starts here.</strong><p>Stash the tabs you aren’t using. They’ll be ready when you are.</p></div></div>
+    </section>
+  </main>
+
+  <aside id="settingsPanel" class="settings-panel" aria-hidden="true">
+    <div class="settings-head"><div><div class="eyebrow">MAKE IT YOURS</div><h2>Customize your tab</h2><p class="settings-intro">Change the whole experience: wallpaper, colors, layout and motion.</p></div><button id="closeSettings" class="round-button" aria-label="Close settings">×</button></div>
+    <div class="setting-group"><button id="openThemeStore" class="theme-store-launch"><span class="store-launch-icon">✦</span><span><strong>Explore Theme Store</strong><small>Cinematic black themes · full layouts · wallpapers · effects</small></span><span class="store-arrow">↗</span></button></div><div class="setting-group"><div class="setting-label">COLOR MOOD</div><div class="theme-grid">
+      <button class="theme-choice" data-theme-choice="stealth"><span class="swatch stealth-swatch"></span><span>Stealth mode</span></button>
+      <button class="theme-choice" data-theme-choice="aurora"><span class="swatch aurora-swatch"></span><span>Aurora</span></button>
+      <button class="theme-choice" data-theme-choice="midnight"><span class="swatch midnight-swatch"></span><span>Midnight</span></button>
+      <button class="theme-choice" data-theme-choice="sand"><span class="swatch sand-swatch"></span><span>Warm sand</span></button>
+      <button class="theme-choice" data-theme-choice="rose"><span class="swatch rose-swatch"></span><span>Rose dusk</span></button>
+    </div></div>
+    <div class="setting-group"><div class="setting-label">AMBIENT WALLPAPER</div><div class="wallpaper-grid">
+      <button class="wall-choice" data-wallpaper-choice="aurora"><span class="wall-thumb wall-aurora"></span>Aurora</button>
+      <button class="wall-choice" data-wallpaper-choice="ocean"><span class="wall-thumb wall-ocean"></span>Deep ocean</button>
+      <button class="wall-choice" data-wallpaper-choice="dusk"><span class="wall-thumb wall-dusk"></span>Violet dusk</button>
+      <button class="wall-choice" data-wallpaper-choice="forest"><span class="wall-thumb wall-forest"></span>Forest</button>
+    </div><label class="upload-wallpaper" for="wallpaperUpload"><span>＋</span> Upload your own wallpaper<input id="wallpaperUpload" type="file" accept="image/*"></label><button id="resetWallpaper" class="reset-wallpaper">Reset to built-in wallpaper</button></div>
+    <div class="setting-group"><div class="setting-label">TYPOGRAPHY</div><div class="theme-grid"><button class="theme-choice" data-font-choice="modern">Modern sans</button><button class="theme-choice" data-font-choice="editorial">Editorial serif</button><button class="theme-choice" data-font-choice="mono">Developer mono</button></div></div><div class="setting-group"><div class="setting-label">MOTION</div><div class="theme-grid"><button class="theme-choice" data-motion-choice="ambient">Ambient</button><button class="theme-choice" data-motion-choice="subtle">Subtle</button><button class="theme-choice" data-motion-choice="off">Reduced motion</button></div></div><div class="settings-note">Your appearance and workspaces stay on this device. No account or tracking.</div>
+  </aside>
+  <div id="commandPalette" class="command-overlay" hidden><section class="command-box" role="dialog" aria-modal="true" aria-label="Stillspace command palette"><div class="command-input-row"><span>⌕</span><input id="commandInput" placeholder="Search pages or run a command…" autocomplete="off"><kbd>ESC</kbd></div><div class="command-hint">QUICK ACTIONS</div><div id="commandResults" class="command-results"></div><div class="command-footer">↑ ↓ to navigate · Enter to open · Ctrl K to toggle</div></section></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="wallpapers.js"></script>
+  <script src="newtab.js"></script>
+</body>
+</html>
