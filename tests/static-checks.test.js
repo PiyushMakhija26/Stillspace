@@ -50,7 +50,7 @@ if (test('all files referenced in manifest.json exist on disk', () => {
 // 3. Local HTML resource references
 total++;
 if (test('all HTML files have valid local references (scripts, css, images)', () => {
-  const htmlFiles = ['newtab.html', 'popup.html', 'manager.html', 'theme-store.html', 'PRIVACY-POLICY.html'];
+  const htmlFiles = ['newtab.html', 'popup.html', 'manager.html', 'theme-store.html', 'PRIVACY-POLICY.html', 'index.html'];
   for (const file of htmlFiles) {
     const fullPath = path.join(ROOT, file);
     assert(fs.existsSync(fullPath), `${file} must exist`);

@@ -25,8 +25,13 @@ Stillspace is a local-first New Tab workspace featuring customizable themes, loc
 4. Click **Load unpacked** and select the folder containing `manifest.json`.
 5. Open a new tab to experience Stillspace.
 
+## Links & Privacy Policy
+- **GitHub Repository:** [https://github.com/PiyushMakhija26/Stillspace](https://github.com/PiyushMakhija26/Stillspace)
+- **Public HTTPS Privacy Policy:** [https://piyushmakhija26.github.io/Stillspace/PRIVACY-POLICY.html](https://piyushmakhija26.github.io/Stillspace/PRIVACY-POLICY.html)
+- **Privacy Policy Source:** [https://github.com/PiyushMakhija26/Stillspace/blob/main/PRIVACY-POLICY.html](https://github.com/PiyushMakhija26/Stillspace/blob/main/PRIVACY-POLICY.html)
+
 ## Store Submission Steps
 1. Upload the final ZIP (`stillspace-v2.18.1-chrome-web-store.zip`) to the Chrome Web Store Developer Dashboard.
-2. Provide the verified public HTTPS URL for the Privacy Policy.
+2. In the **Privacy Policy** field, enter: `https://piyushmakhija26.github.io/Stillspace/PRIVACY-POLICY.html`
 3. Fill in the Single-Purpose description and Permissions Justifications as documented in `STORE-RELEASE-CHECKLIST.md`.
 4. Submit for review.

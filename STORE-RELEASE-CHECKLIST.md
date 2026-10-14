@@ -13,7 +13,7 @@
 - [x] **Security Review:** Zero `eval`, zero remote scripts, zero unvalidated HTML injections, safe file upload validation.
 - [x] **Asset & License Audit:** 100 procedural SVG wallpapers verified, system fonts used, zero uncredited third-party runtime dependencies.
 - [x] **Automated Testing:** 100% test pass rate across static, unit, integration, and Chrome browser automated tests.
-- [ ] **Public Privacy Policy URL:** Ready for live deployment to public HTTPS repository/domain by user (blocked pending user repo link).
+- [x] **Public Privacy Policy URL:** Deployed at https://piyushmakhija26.github.io/Stillspace/PRIVACY-POLICY.html (Repository: https://github.com/PiyushMakhija26/Stillspace)
 
 ---
 
