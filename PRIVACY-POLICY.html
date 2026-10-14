@@ -1,19 +1,75 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stillspace Privacy Policy</title><style>body{max-width:760px;margin:48px auto;padding:0 22px;font:16px/1.65 system-ui,sans-serif;color:#202124}h1,h2{line-height:1.2}small{color:#5f6368}</style></head><body>
-<h1>Stillspace Privacy Policy</h1><small>Effective date: 14 October 2026</small>
-<p>Stillspace is a Chrome extension that provides a customizable New Tab page, tab workspaces, local notes, a focus timer, wallpapers, Browser Memory.</p>
-<h2>Information handled by the extension</h2>
-<p>Stillspace may access tab titles and URLs to provide features you explicitly use, including saving and restoring tab workspaces and displaying tab information in your workspace manager. The extension may store your preferences, saved workspace details, notes, daily priorities, timer state, and custom wallpapers.</p>
-<h2>Where data is stored</h2>
-<p>This information is stored locally in Chrome extension storage on your device. Stillspace's bundled code does not send this information to a Stillspace-operated server. The extension does not include an analytics SDK or advertising SDK.</p>
-<h2>External services</h2>
-<p>If you enter a search query in the New Tab search box, Stillspace opens Google Search in a browser tab. Stillspace does not control third-party sites.</p>
-<h2>Sharing and sale</h2>
-<p>Stillspace does not sell personal information or transmit locally stored workspace or notes to its developer. Data may be visible to anyone who has access to your browser profile or device.</p>
-<h2>Your choices and deletion</h2>
-<p>You choose whether to save tabs, notes, and custom wallpapers. You can delete saved items in the extension interface or remove the extension and its locally stored data through Chrome's extension management settings. Backups you export are saved wherever you choose and are outside the extension's control.</p>
-<h2>Chrome Web Store Limited Use</h2>
-<p>Stillspace's use of information received through Chrome extension APIs is limited to providing the user-facing features described in this policy and the Chrome Web Store listing. Such information is not sold, used for personalized advertising, or transferred to data brokers. The use of information received from Chrome APIs adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
-<h2>Changes and contact</h2>
-<p>This policy may be updated if Stillspace's data practices change. Before publishing, the developer must add a monitored support contact here and ensure this policy accurately matches the submitted build and Chrome Web Store Privacy practices declarations.</p>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stillspace Privacy Policy</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #ffffff; --text: #202124; --muted: #5f6368; --line: #dadce0; --card: #f8f9fa; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #0e1117; --text: #e6edf3; --muted: #8b949e; --line: #30363d; --card: #161b22; } }
+    body { max-width: 780px; margin: 40px auto; padding: 0 24px; font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); }
+    h1 { font-size: 28px; line-height: 1.25; margin-bottom: 4px; }
+    h2 { font-size: 20px; line-height: 1.3; margin-top: 32px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    small { display: block; color: var(--muted); margin-bottom: 24px; }
+    p, li { margin: 12px 0; }
+    ul { padding-left: 24px; }
+    code { font-size: 0.9em; padding: 2px 5px; border-radius: 4px; background: var(--card); border: 1px solid var(--line); }
+    .highlight-card { padding: 18px 20px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <h1>Stillspace Privacy Policy</h1>
+  <small>Version 2.18.1 · Effective Date: October 14, 2026</small>
+
+  <div class="highlight-card">
+    <strong>Summary:</strong> Stillspace is a local-first Chrome extension. All workspaces, notes, priorities, checkpoints, preferences, and custom wallpapers remain entirely on your local device in Chrome extension storage. Stillspace operates without a remote server, user accounts, telemetry, or analytics tracking.
+  </div>
+
+  <h2>1. Overview and Core Architecture</h2>
+  <p>Stillspace is a customizable New Tab productivity workspace featuring local note capture, in-page focus timer, daily priorities, tab workspaces, Browser Memory, project continuity checkpoints, and curated offline SVG wallpapers. The extension does not transmit your personal data to any external server.</p>
+
+  <h2>2. Information Accessed and Processed</h2>
+  <p>Stillspace only accesses browser data necessary to provide features you explicitly interact with:</p>
+  <ul>
+    <li><strong>Browser Tabs and URLs (<code>tabs</code> permission):</strong> When you choose to stash open tabs into a workspace, restore a workspace, view open tabs in the Workspace Manager, or save a website to Browser Memory, Stillspace reads tab URLs and titles. This data is processed locally in memory and saved to local storage only when you trigger a save action. Stillspace does not monitor your browsing activity in the background.</li>
+    <li><strong>Workspaces and Tabs:</strong> Workspace names, creation dates, tab URLs, tab titles, favicon URLs, and pinned/muted states are stored locally on your device.</li>
+    <li><strong>Quick Notes and Priorities:</strong> Text entered into Quick Notes and Today's Priorities is stored directly in local extension storage as you write.</li>
+    <li><strong>Focus Timer and Continuity Checkpoints:</strong> Countdown timer state, completed session statistics, and project continuity notes ("What are you working on?", "Where did you stop?", "Next step") are stored locally on your device.</li>
+    <li><strong>Theme and Wallpaper Settings:</strong> Selected theme preferences, typography settings, motion choices, custom accent colors, and custom uploaded wallpaper images (<code>unlimitedStorage</code> permission) are kept in local extension storage.</li>
+  </ul>
+
+  <h2>3. Data Storage and Transmission</h2>
+  <p>All data handled by Stillspace is stored locally on your device using Chrome's <code>chrome.storage.local</code> API. Stillspace does not operate any remote backend server, database, or API endpoint. Your data is never transmitted to Stillspace developers or any external cloud service.</p>
+
+  <h2>4. Third-Party Services and Network Requests</h2>
+  <ul>
+    <li><strong>No Analytics or Tracking:</strong> Stillspace contains zero third-party analytics SDKs, advertising SDKs, telemetry frameworks, tracking pixels, or remote scripts.</li>
+    <li><strong>Search Queries:</strong> The New Tab dashboard includes an optional search bar. When you submit a search query, Stillspace opens the destination URL or standard Google Search (<code>https://www.google.com/search?q=...</code>) directly in your browser. This request is handled directly between your browser and Google; Stillspace does not record or intercept your queries.</li>
+  </ul>
+
+  <h2>5. Removed Features and Historical Disclosures</h2>
+  <p>AI Capture and the floating focus timer injected over arbitrary external webpages have been completely removed from Stillspace. Stillspace does not inject scripts into external websites and does not require or use the <code>scripting</code> or <code>activeTab</code> permissions.</p>
+
+  <h2>6. Data Retention, Control, and Deletion</h2>
+  <p>You have complete control over your data at all times:</p>
+  <ul>
+    <li><strong>Deleting Workspaces:</strong> Workspaces can be deleted individually within the popup, New Tab dashboard, or Workspace Manager. Deleting a workspace immediately removes its saved tab list from local storage without closing any currently open tabs.</li>
+    <li><strong>Clearing Notes and Checkpoints:</strong> Click "Clear note" or "Clear" to instantly erase notes and project continuity checkpoints from storage.</li>
+    <li><strong>Clearing Priorities:</strong> Complete or remove individual priorities, or click "Clear completed" to purge finished tasks.</li>
+    <li><strong>Complete Removal:</strong> Uninstalling the Stillspace extension through Chrome's extension manager (<code>chrome://extensions</code>) immediately and permanently removes all extension storage, preferences, and cached wallpapers from your device.</li>
+  </ul>
+
+  <h2>7. Chrome Web Store Policy and Limited Use Compliance</h2>
+  <p>Stillspace adheres to the Chrome Web Store Developer Program Policies, including the User Data Policy and Limited Use requirements:</p>
+  <ul>
+    <li>Information accessed through Chrome extension APIs is used strictly to provide and improve the user-facing workspace and productivity features described here and in the Web Store listing.</li>
+    <li>Data is never transferred, sold, or rented to third parties, data brokers, or advertising networks.</li>
+    <li>Data is never used for creditworthiness evaluation, lending purposes, or personalized advertising.</li>
+  </ul>
+
+  <h2>8. Contact and Inquiries</h2>
+  <p>If you have any questions, feedback, or concerns regarding this privacy policy or Stillspace's data handling practices, please contact the developer at:</p>
+  <p><strong>Support &amp; Privacy Contact:</strong> <a href="mailto:piyushmakhija26@gmail.com">piyushmakhija26@gmail.com</a></p>
+  <p>Developer: Piyush Makhija</p>
+</body>
+</html>

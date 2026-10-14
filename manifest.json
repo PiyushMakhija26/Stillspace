@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Stillspace",
-  "version": "2.18.0",
+  "version": "2.18.1",
   "description": "Stillspace \u2014 a cinematic New Tab workspace with themes, wallpapers, focus tools and saved tab workspaces.",
   "permissions": [
     "tabs",

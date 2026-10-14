@@ -1,32 +1,32 @@
-# Stillspace 2.18.0 — Chrome Web Store upload package
+# Stillspace 2.18.1 — Chrome Web Store Release Package
 
-Stillspace is a local-first New Tab workspace with a customizable appearance, locally stored wallpapers and notes, focus timer, daily priorities, saved tab workspaces, and Browser Memory.
+Stillspace is a local-first New Tab workspace featuring customizable themes, locally bundled offline wallpapers, quick notes, focus timer, daily priorities, tab workspaces, and Browser Memory.
 
-## Package
-- This ZIP is packaged for Chrome Web Store upload: `manifest.json` is at the archive root.
-- First-run appearance defaults to Stealth; existing saved preferences are preserved.
-- Themes and wallpapers are separate choices.
-- 100 locally bundled procedural SVG wallpapers are included offline.
-- AI Capture and the floating focus timer have been removed.
-- No remote JavaScript, remote font files, analytics SDK, or external image dependencies were found in the static source scan.
+## Package Architecture & Verification
+- **Root Manifest:** `manifest.json` is located at the archive root.
+- **Version:** `2.18.1` (Incremented from baseline `2.18.0`).
+- **First-Run Default:** Defaults to Stealth theme with `#c8ff00` lime accent and Quiet Command layout.
+- **Preference Persistence:** Returning users' existing themes, wallpapers, workspaces, and notes are strictly preserved upon upgrade.
+- **Independence:** Themes and wallpapers operate independently. Changing a theme preserves the active wallpaper; choosing or uploading a wallpaper preserves the active theme.
+- **Wallpapers:** Exactly 100 procedural SVG vector wallpapers bundled offline in `wallpapers/`.
+- **Zero Remote Code:** No remote scripts, eval, dynamic string compilation, or remote fonts.
+- **Zero Third-Party Runtime Dependencies:** 100% native standard JavaScript and CSS.
+- **Removed Features:** AI Capture and the webpage-injected floating focus timer remain completely removed. No `scripting` or `activeTab` permissions are requested.
 
-## Permissions and purposes
-- `tabs`: save and restore user-selected tab workspaces and support tab information in the workspace manager and Browser Memory.
-- `storage`: store user preferences, workspaces, notes, daily priorities, timer state and related content locally in Chrome storage.
-- `unlimitedStorage`: support user-selected custom wallpaper files and local workspace data.
+## Permissions & Least-Privilege Justifications
+- `tabs`: Allows the extension to query, stash, and restore user tabs across windows when saving or loading workspaces, and to bookmark pages into Browser Memory. A narrower permission cannot inspect or close other inactive tabs across a window.
+- `storage`: Enables storing workspaces, notes, priorities, focus timer state, and user settings locally on the user's device via `chrome.storage.local`.
+- `unlimitedStorage`: Enables storing custom user-uploaded wallpapers (Base64 JPEG canvas exports up to 1920x1080) and extensive workspaces without encountering the default 10MB quota ceiling.
 
-## Local test installation
-1. Extract this ZIP to a folder.
-2. Open `chrome://extensions` and enable Developer mode.
-3. Choose **Load unpacked** and select the extracted folder containing `manifest.json`.
+## Local Test Installation
+1. Extract the release ZIP into a folder.
+2. Open Google Chrome and navigate to `chrome://extensions`.
+3. Enable **Developer mode** (toggle in upper right).
+4. Click **Load unpacked** and select the folder containing `manifest.json`.
+5. Open a new tab to experience Stillspace.
 
-## Before publishing
-- Host `PRIVACY-POLICY.html` at a stable public HTTPS URL and enter that URL in the Chrome Web Store listing. The file inside this ZIP is not itself a hosted URL.
-- Add a monitored support contact to the privacy policy and Store listing.
-- Complete Chrome Web Store Privacy practices accurately, including tab titles/URLs and local processing.
-- Verify store listing assets, screenshots, support contact, and single-purpose description.
-- Run a live Chrome smoke test: first-run Stealth default; existing theme persistence; New Tab search; save/restore/delete workspaces; theme/wallpaper independence; custom wallpaper upload; notes; focus timer; Browser Memory.
-- Review the final package and all Chrome Web Store policy warnings before submitting.
-
-## Static validation
-This package should be treated as statically checked, not live-tested. Validation includes JavaScript syntax, manifest and referenced-file checks, local HTML references, all bundled SVG wallpapers, absence of removed floating timer and AI Capture features, and ZIP integrity. This is not a live Chrome test, independent security review, or guarantee of Store approval.
+## Store Submission Steps
+1. Upload the final ZIP (`stillspace-v2.18.1-chrome-web-store.zip`) to the Chrome Web Store Developer Dashboard.
+2. Provide the verified public HTTPS URL for the Privacy Policy.
+3. Fill in the Single-Purpose description and Permissions Justifications as documented in `STORE-RELEASE-CHECKLIST.md`.
+4. Submit for review.

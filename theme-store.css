@@ -64,9 +64,9 @@ body[data-view="wallpapers"] .wallpaper-library{margin-top:24px}
 .appearance-choice select:focus-visible{box-shadow:0 0 0 3px #c8ff0025}
 .appearance-choice p{flex-basis:100%;margin:0;color:#77817f;font-size:11px;text-align:center}
 body[data-view="themes"] .wallpaper-library,body[data-view="themes"] .custom-wallpaper-panel{display:none!important}
-body[data-view="wallpapers"] .featured-blackops,body[data-view="wallpapers"] .toolbar,body[data-view="wallpapers"] #themeGrid,body[data-view="wallpapers"] #empty,body[data-view="wallpapers"] .customizer,body[data-view="wallpapers"] .search-wrap{display:none!important}
+body[data-view="wallpapers"] .hero,body[data-view="wallpapers"] .featured-blackops,body[data-view="wallpapers"] .toolbar,body[data-view="wallpapers"] #themeGrid,body[data-view="wallpapers"] #empty,body[data-view="wallpapers"] .customizer,body[data-view="wallpapers"] .custom-wallpaper-panel{display:none!important}
 body[data-view="wallpapers"] .wallpaper-library{display:block;margin-top:0}
-body[data-view="custom"] .featured-blackops,body[data-view="custom"] .wallpaper-library,body[data-view="custom"] .toolbar,body[data-view="custom"] #themeGrid,body[data-view="custom"] #empty,body[data-view="custom"] .customizer,body[data-view="custom"] .search-wrap{display:none!important}
+body[data-view="custom"] .hero,body[data-view="custom"] .featured-blackops,body[data-view="custom"] .wallpaper-library,body[data-view="custom"] .toolbar,body[data-view="custom"] #themeGrid,body[data-view="custom"] #empty,body[data-view="custom"] .customizer{display:none!important}
 .custom-wallpaper-panel{max-width:760px;margin:0 auto 50px;padding:34px;border:1px solid #ffffff18;border-radius:20px;background:linear-gradient(140deg,#111411,#080909);text-align:center}
 .custom-wallpaper-panel .eyebrow{color:#c8ff00}.custom-wallpaper-panel h2{margin:10px 0;font-size:clamp(26px,4vw,38px);letter-spacing:-1.5px}.custom-wallpaper-panel p{max-width:480px;margin:0 auto 20px;color:#9ba4a0;font-size:13px;line-height:1.7}
 .custom-upload{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:11px;background:#c8ff00;color:#080a05;font-size:12px;font-weight:800;cursor:pointer}

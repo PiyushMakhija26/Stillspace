@@ -1,5 +1,5 @@
 const $ = id => document.getElementById(id);
-const DEFAULTS = { theme: 'stealth', wallpaper: 'aurora', customWallpaper: '', font: 'modern', motion: 'ambient', storeTheme: null, customAccent: '#c5f2d7', customBase: '#10151d', wallpaperId: 'wp-001' };
+const DEFAULTS = { theme: 'stealth', wallpaper: 'aurora', customWallpaper: '', font: 'modern', motion: 'ambient', storeTheme: null, customAccent: '#c8ff00', customBase: '#10151d', wallpaperId: 'wp-001' };
 let toastTimer;
 
 function showToast(message) {
@@ -17,6 +17,14 @@ function clockTick() {
   const hour = now.getHours();
   $('greeting').innerHTML = hour < 12 ? 'Good <em>morning.</em>' : hour < 18 ? 'Good <em>afternoon.</em>' : 'Good <em>evening.</em>'; 
 }
+const THEME_ACCENTS = {
+  stealth: '#c8ff00',
+  blackops: '#c8ff00',
+  aurora: '#c5f2d7',
+  midnight: '#c6d5ff',
+  sand: '#f0d3a8',
+  rose: '#f1c4d5'
+};
 function applyAppearance(settings) {
   document.body.dataset.theme = settings.theme || DEFAULTS.theme;
   document.body.dataset.wallpaper = settings.wallpaper || DEFAULTS.wallpaper; document.body.dataset.font = settings.font || 'modern'; document.body.dataset.motion = settings.motion || 'ambient';
@@ -28,8 +36,8 @@ function applyAppearance(settings) {
     layer.style.backgroundPosition = 'center center';
     layer.style.backgroundRepeat = 'no-repeat';
   } else if (settings.wallpaper === 'built-in' && settings.wallpaperId) {
-    // Resolve the actual bundled filename from the shared catalog. The first 100
-    // wallpapers are SVG; the cinematic collection uses JPG files.
+    // Resolve the actual bundled filename from the shared catalog. All 100
+    // wallpapers are procedural SVG files bundled locally in wallpapers/.
     const wallpaper = (window.STILLSPACE_WALLPAPERS || []).find(item => item.id === settings.wallpaperId);
     layer.style.background = '#050608';
     layer.style.backgroundImage = wallpaper?.file ? `url("${chrome.runtime.getURL(`wallpapers/${wallpaper.file}`)}")` : '';
@@ -43,8 +51,9 @@ function applyAppearance(settings) {
     layer.style.backgroundImage = '';
     layer.style.background = '';
   }
-  document.documentElement.style.setProperty('--mint', settings.storeTheme?.accent || settings.customAccent || '#c5f2d7');
-  document.documentElement.style.setProperty('--theme-accent', settings.storeTheme?.accent || settings.customAccent || '#c5f2d7');
+  const activeAccent = settings.storeTheme?.accent || (settings.theme && THEME_ACCENTS[settings.theme]) || settings.customAccent || '#c8ff00';
+  document.documentElement.style.setProperty('--mint', activeAccent);
+  document.documentElement.style.setProperty('--theme-accent', activeAccent);
   document.body.dataset.experience = settings.storeTheme?.experience || '';
   document.body.style.setProperty('--theme-background', settings.storeTheme?.background || '');
   if (settings.storeTheme?.experience === 'blackops') document.body.dataset.theme = 'blackops';
@@ -111,7 +120,7 @@ $('openThemeStore').addEventListener('click', () => chrome.tabs.create({ url: ch
 const openStore = () => chrome.tabs.create({ url: chrome.runtime.getURL('theme-store.html') });
 $('openThemeStoreTop').addEventListener('click', openStore);
 document.querySelectorAll('[data-theme-choice]').forEach(button => button.addEventListener('click', async () => { await updateSettings({ theme: button.dataset.themeChoice, storeTheme: null }); showToast(`Color mood: ${button.textContent.trim()}`); }));
-document.querySelectorAll('[data-wallpaper-choice]').forEach(button => button.addEventListener('click', async () => { await updateSettings({ wallpaper: button.dataset.wallpaperChoice, customWallpaper: '', storeTheme: null }); showToast(`Wallpaper: ${button.textContent.trim()}`); }));
+document.querySelectorAll('[data-wallpaper-choice]').forEach(button => button.addEventListener('click', async () => { await updateSettings({ wallpaper: button.dataset.wallpaperChoice, customWallpaper: '' }); showToast(`Wallpaper: ${button.textContent.trim()}`); }));
 document.querySelectorAll('[data-font-choice]').forEach(button => button.addEventListener('click', async () => { await updateSettings({font:button.dataset.fontChoice}); document.querySelectorAll('[data-font-choice]').forEach(b=>b.classList.toggle('active',b===button)); showToast(`Typography: ${button.textContent.trim()}`); }));
 document.querySelectorAll('[data-motion-choice]').forEach(button => button.addEventListener('click', async () => { await updateSettings({motion:button.dataset.motionChoice}); document.querySelectorAll('[data-motion-choice]').forEach(b=>b.classList.toggle('active',b===button)); showToast(`Motion: ${button.textContent.trim()}`); }));
 async function saveUploadedWallpaper(file){
@@ -126,7 +135,7 @@ async function saveUploadedWallpaper(file){
     canvas.getContext('2d',{alpha:false}).drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close?.();
     const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('Could not compress image')),'image/jpeg',.84));
     const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result));reader.onerror=()=>reject(new Error('Could not read image'));reader.readAsDataURL(blob)});
-    await updateSettings({wallpaper:'custom',customWallpaper:data,wallpaperId:'',storeTheme:null});
+    await updateSettings({wallpaper:'custom',customWallpaper:data,wallpaperId:''});
     showToast('Wallpaper saved and applied.');
   }catch(err){console.error('Stillspace wallpaper upload failed',err);showToast('Could not save wallpaper. Try another image.')}
 }
